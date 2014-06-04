@@ -117,14 +117,15 @@ class Fooman_GoogleAnalyticsPlus_Block_Remarketing extends Fooman_GoogleAnalytic
     {
         switch ($this->getPageType()) {
             case self::GA_PAGETYPE_PRODUCT:
-                $products[] = Mage::registry('current_product')->getId();
+                $products[] = Mage::registry('current_product')->getSku();
                 return $this->getArrayReturnValue($products, '');
                 break;
             case self::GA_PAGETYPE_CART:
                 $quote = Mage::getSingleton('checkout/session')->getQuote();
                 if ($quote) {
                     foreach ($quote->getAllItems() as $item) {
-                        $products[] = $item->getProductId();
+								if($item->getParentItemId()) continue;
+								$products[] = $item->getSku();
                     }
                 }
                 return $this->getArrayReturnValue($products, '', true);
@@ -132,7 +133,8 @@ class Fooman_GoogleAnalyticsPlus_Block_Remarketing extends Fooman_GoogleAnalytic
             case self::GA_PAGETYPE_PURCHASE:
                 if ($this->_getOrder()) {
                     foreach ($this->_getOrder()->getAllItems() as $item) {
-                        $products[] = $item->getProductId();
+								if($item->getParentItemId()) continue;
+								$products[] = $item->getSku();
                     }
                 }
                 return $this->getArrayReturnValue($products, '', true);
