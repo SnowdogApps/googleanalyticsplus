@@ -58,7 +58,7 @@ class Fooman_GoogleAnalyticsPlus_Helper_Data extends Mage_Core_Helper_Abstract
     public function getTrackingCurrency($object)
     {
         if (!Mage::getStoreConfig('google/analyticsplus/convertcurrencyenabled')) {
-            return $object->getBaseCurrencyCode();
+            return $object->getCurrencyCode();
         } else {
             return Mage::getStoreConfig('google/analyticsplus/convertcurrency');
         }
