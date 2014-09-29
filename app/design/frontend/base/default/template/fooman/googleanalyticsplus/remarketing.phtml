@@ -10,7 +10,7 @@
     /* <![CDATA[ */
     var google_tag_params = {
         <?php if($prodId !== false):?>
-        ecomm_prodid: <?php echo $prodId ?>,
+        ecomm_prodid: '<?php echo $prodId ?>',
         <?php endif;?>
         ecomm_pagetype: '<?php echo $pageType ?>',
         <?php if($this->getEcommPValue()):?>
