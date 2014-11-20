@@ -65,9 +65,9 @@ class Fooman_GoogleAnalyticsPlus_Block_Remarketing extends Fooman_GoogleAnalytic
     public function getEcommPValue()
     {
         if ($this->getPageType() == self::GA_PAGETYPE_PRODUCT) {
-            return sprintf(
-                "%01.2f", Mage::helper('googleanalyticsplus')->convert(Mage::registry('current_product'), 'final_price')
-            );
+            $finalPrice = Mage::registry('current_product')->getFinalPrice();
+            $formattedPrice = Mage::helper('core')->currency($finalPrice, false, false);
+            return sprintf( "%01.2f", $formattedPrice );
         }
     }
 
