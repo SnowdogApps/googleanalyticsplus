@@ -23,8 +23,8 @@
                             <source_model>adminhtml/system_config_source_yesno</source_model>
                             <sort_order>560</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                         </convertcurrencyenabled>
                         <convertcurrency translate='label'>
                             <label>Currency</label>
@@ -32,8 +32,8 @@
                             <source_model>adminhtml/system_config_source_currency</source_model>
                             <sort_order>570</sort_order>
                             <show_in_default>1</show_in_default>
-                            <show_in_website>0</show_in_website>
-                            <show_in_store>0</show_in_store>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
                             <depends><convertcurrencyenabled>1</convertcurrencyenabled></depends>
                         </convertcurrency>
                         <categorytrackingattribute translate="label">
